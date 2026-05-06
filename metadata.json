@@ -1,0 +1,9 @@
+{
+  "name": "EDXIF",
+  "description": "Professional Mobile-Friendly Metadata Editor for Images, Videos, Audio, and Archives. Edit EXIF, GPS, and more with high-fidelity control.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ],
+  "majorCapabilities": []
+}

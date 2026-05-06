@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-theme-primary: var(--theme-primary);
+  --color-theme-bg: var(--theme-bg);
+  --color-theme-surface: var(--theme-surface);
+  --color-theme-border: var(--theme-border);
+  --color-theme-text: var(--theme-text);
+  --color-theme-text-muted: var(--theme-text-muted);
+}
+
+@layer base {
+  body {
+    @apply bg-theme-bg text-theme-text font-sans antialiased overflow-hidden transition-colors duration-150;
+  }
+}
+
+.mono {
+  @apply font-mono text-[11px] leading-none tracking-tight;
+}
+
+.label-small {
+  @apply text-[10px] font-bold text-theme-text-muted uppercase tracking-tighter;
+}
+
+/* Custom scrollbar - Technical & Square */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-theme-text/5;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-theme-text/20 rounded-none;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-theme-primary/40;
+}
+
+.card-minimal {
+  @apply bg-theme-surface border border-theme-border rounded-none overflow-hidden;
+}
+
+.btn-boxy {
+  @apply px-4 py-1.5 rounded-none border border-theme-border bg-theme-surface hover:bg-theme-text/5 transition-all active:translate-y-[1px];
+}
+
+.pane-header {
+  @apply h-7 flex items-center px-4 bg-theme-text/5 border-b border-theme-border text-[10px] font-black uppercase tracking-widest text-theme-text-muted select-none;
+}
+
+.ida-tab {
+  @apply h-8 px-4 flex items-center gap-2 border-r border-theme-border text-[10px] font-bold uppercase tracking-tight transition-colors whitespace-nowrap shrink-0 relative;
+}
+
+.ida-tab:hover {
+  @apply bg-theme-text/5 text-theme-text;
+}
+
+.ida-tab-active {
+  @apply bg-theme-bg text-theme-primary;
+}
+
+.ida-tab-active::after {
+  content: "";
+  @apply absolute bottom-0 left-0 right-0 h-0.5 bg-theme-primary;
+}
