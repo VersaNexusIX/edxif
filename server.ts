@@ -8,7 +8,7 @@ import { exiftool } from 'exiftool-vendored';
 import ExifReader from 'exifreader';
 const __filename = fileURLToPath(import.meta.url), __dirname = path.dirname(__filename);
 async function startServer() {
-  const app = express(), PORT = 3000, uploadDir = '/tmp/uploads';
+  const app = express(), PORT = 3000, uploadDir = 'tmp/uploads';
   if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
   const upload = multer({ dest: uploadDir });
   app.use(express.json()); app.use(express.urlencoded({ extended: true }));
@@ -42,6 +42,18 @@ async function startServer() {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath)); app.get('*', (req, res) => res.sendFile(path.join(distPath, 'index.html')));
   }
-  app.listen(PORT, '0.0.0.0');
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log('\n' + '='.repeat(50));
+    console.log(' EDXIF PRO TERMINAL : INITIALIZED');
+    console.log('='.repeat(50));
+    console.log(' STATUS    : OPERATIONAL');
+    console.log(` PORT      : ${PORT}`);
+    console.log(` LOCAL     : http://localhost:${PORT}`);
+    console.log(' ENGINE    : DUAL_CORE_METADATA');
+    console.log(' MODE      : ' + (process.env.NODE_ENV === 'production' ? 'PRODUCTION' : 'DEVELOPMENT'));
+    console.log('='.repeat(50));
+    console.log(' READY FOR DATA INGESTION');
+    console.log('='.repeat(50) + '\n');
+  });
 }
 startServer();
