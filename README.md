@@ -1,40 +1,61 @@
-# EDXIF PRO OPERATIONAL MANUAL
-## VERSION 1.0.42 PROFESSIONAL METADATA TERMINAL
+# EDXIF PRO
 
-### SYSTEM OVERVIEW
-EDXIF PRO is a top tier metadata management system designed for technical professionals who require absolute control over the embedded data within their digital media assets. This application provides a unified interface for the extraction analysis and modification of complex metadata structures across a wide variety of file formats.
+**Professional Metadata Editor for Images, Videos, Audio, and Archives**
 
-### MISSION CRITICAL FEATURES
+EDXIF PRO is a web-based application that provides full read and write access to embedded file metadata. It supports EXIF, GPS coordinates, timestamps, camera settings, and dozens of other technical markers across a wide range of media formats. The interface is built with a retro terminal aesthetic and supports over 30 selectable color themes.
 
-1. COMPREHENSIVE TAG IDENTIFICATION
-The system scans every byte of the file header to locate and identify metadata tags across standard categories including EXIF GPS IPTC and XMP. No data segment is left unexamined.
+---
 
-2. REAL TIME BINARY PREVIEW
-As files are processed the system generates a high fidelity preview of the media stream allowing for visual verification of the asset alongside its technical markers.
+## Table of Contents
 
-3. ATOMIC WRITING PROTOCOLS
-Modifications are applied using a secure writing process that ensures the integrity of the media stream remains intact. The system rebuilds the file header with surgical precision.
+- [Overview](docs/OVERVIEW.md)
+- [Getting Started](docs/GETTING-STARTED.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [API Reference](docs/API-REFERENCE.md)
+- [Components](docs/COMPONENTS.md)
+- [Themes](docs/THEMES.md)
+- [Configuration](docs/CONFIGURATION.md)
 
-4. DYNAMIC THEMATIC PROFILES
-The terminal interface supports over 30 professional themes designed for different working conditions including high contrast modes for bright environments and low light modes for dark labs.
+---
 
-### OPERATIONAL WORKFLOW
+## Quick Start
 
-1. INITIALIZATION
-Start by loading a digital asset into the primary buffer. This can be achieved through a standard file selection diagonal or by dragging the file into the active capture zone.
+**Requirements:** Node.js 18 or higher
 
-2. SEGMENTATION
-The system automatically categorizes metadata into distinct segments. Use the navigation tabs to switch between Camera Timeline GPS and System views.
+```bash
+# Install all dependencies
+npm install
 
-3. ANALYSIS
-Review the tabular data presented in the central pane. Identify specific tags that require modification or technical auditing.
+# Start the development server
+npm run dev
+```
 
-4. EXECUTION
-Click on any editable value field to enter new data. The system tracks all pending changes in a dirty state buffer indicated by the MODIFIED status marker.
+The application will be available at `http://localhost:3000`.
 
-5. FINALIZATION
-Commit your changes to trigger the server side processing engine. Once the operation is complete the system will provide a reconstructed asset ready for export.
+---
 
-### HARDWARE AND SOFTWARE COMPATIBILITY
-EDXIF PRO is optimized for modern web browsers and utilizes industrial strength binary utilities on the server side. It is designed to scale with your hardware providing fast response times even for large media assets such as high resolution RAW photos and extended video clips.
+## What EDXIF PRO Does
 
+When a file is uploaded, the server extracts its embedded metadata using ExifReader and ExifTool. The extracted fields are presented in a tabular editor grouped by category: camera settings, GPS location, timestamps, and system-level file properties. Any field can be edited inline. Once changes are committed, ExifTool rewrites the metadata into the file binary, and the modified file is made available for download.
+
+The entire workflow runs locally. No data is sent to external services.
+
+---
+
+## Supported Formats
+
+EDXIF PRO can read and write metadata for the following file types.
+
+**Images:** JPEG, PNG, TIFF, WebP, HEIC, RAW variants (CR2, NEF, ARW)
+
+**Video:** MP4, MOV, AVI, MKV
+
+**Audio:** MP3, FLAC, WAV, AAC, OGG
+
+**Archives:** ZIP (read metadata only)
+
+---
+
+## License
+
+Private. All rights reserved.
