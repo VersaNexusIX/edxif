@@ -57,5 +57,4 @@ EDXIF PRO can read and write metadata for the following file types.
 ---
 
 ## License
-
-Private. All rights reserved.
+NeoDAX 1.0 (origin) 
